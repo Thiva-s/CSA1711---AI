@@ -1,0 +1,42 @@
+from collections import deque
+
+start = (3,3,1)
+goal = (0,0,0)
+
+moves = [(1,0),(2,0),(0,1),(0,2),(1,1)]
+
+def safe(m, c):
+    return (m == 0 or m >= c) and (3-m == 0 or 3-m >= 3-c)
+
+queue = deque()
+queue.append((start,[start]))
+visited = set()
+
+while queue:
+
+    state, path = queue.popleft()
+
+    if state == goal:
+        print("Solution Path:")
+        for step in path:
+            print(step)
+        break
+
+    if state in visited:
+        continue
+
+    visited.add(state)
+
+    m, c, boat = state
+
+    for dm, dc in moves:
+
+        if boat == 1:
+            new = (m-dm, c-dc, 0)
+        else:
+            new = (m+dm, c+dc, 1)
+
+        nm, nc, nb = new
+
+        if 0 <= nm <= 3 and 0 <= nc <= 3 and safe(nm, nc):
+            queue.append((new, path+[new]))
