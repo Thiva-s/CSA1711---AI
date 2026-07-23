@@ -1,0 +1,63 @@
+# Simple 8 Puzzle Program
+
+board = [
+    [5, 4, 0],
+    [6, 1, 8],
+    [7, 3, 2]
+]
+
+# Goal State
+goal = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 0]
+]
+
+def display():
+    for row in board:
+        print(row)
+    print()
+
+display()
+
+while True:
+    # Check if puzzle is already solved
+    if board == goal:
+        print("Congratulations! Puzzle Solved.")
+        break
+
+    move = input("Enter move (up/down/left/right): ")
+
+    # Exit manually
+    if move == "exit":
+        print("Game Exited.")
+        break
+
+    # Find blank (0)
+    for i in range(3):
+        for j in range(3):
+            if board[i][j] == 0:
+                x, y = i, j
+
+    # Move blank
+    if move == "up" and x > 0:
+        board[x][y], board[x-1][y] = board[x-1][y], board[x][y]
+
+    elif move == "down" and x < 2:
+        board[x][y], board[x+1][y] = board[x+1][y], board[x][y]
+
+    elif move == "left" and y > 0:
+        board[x][y], board[x][y-1] = board[x][y-1], board[x][y]
+
+    elif move == "right" and y < 2:
+        board[x][y], board[x][y+1] = board[x][y+1], board[x][y]
+
+    else:
+        print("Invalid Move")
+
+    display()
+
+    # Automatically exit if solved after the move
+    if board == goal:
+        print("Congratulations! Puzzle Solved.")
+        break
