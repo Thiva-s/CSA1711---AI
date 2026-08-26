@@ -1,0 +1,37 @@
+from collections import deque
+
+jug1 = 5
+jug2 = 3
+target = 4
+
+visited = set()
+
+queue = deque()
+queue.append((0,0))
+
+while queue:
+
+    x, y = queue.popleft()
+
+    if (x,y) in visited:
+        continue
+
+    visited.add((x,y))
+    print((x,y))
+
+    if x == target or y == target:
+        print("Target Reached")
+        break
+
+    next_states = [
+        (jug1, y),
+        (x, jug2),
+        (0, y),
+        (x, 0),
+        (max(0, x-(jug2-y)), min(jug2, x+y)),
+        (min(jug1, x+y), max(0, y-(jug1-x)))
+    ]
+
+    for state in next_states:
+        if state not in visited:
+            queue.append(state)

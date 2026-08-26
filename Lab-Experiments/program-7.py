@@ -1,0 +1,28 @@
+# Breadth First Search
+
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D', 'E'],
+    'C': ['F'],
+    'D': [],
+    'E': ['F'],
+    'F': []
+}
+
+visited = []
+queue = []
+
+def bfs(start):
+    visited.append(start)
+    queue.append(start)
+
+    while queue:
+        node = queue.pop(0)
+        print(node, end=" ")
+
+        for neighbor in graph[node]:
+            if neighbor not in visited:
+                visited.append(neighbor)
+                queue.append(neighbor)
+
+bfs('A')

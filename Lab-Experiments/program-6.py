@@ -1,0 +1,23 @@
+# Vacuum Cleaner Problem
+
+rooms = {
+    "A": "Dirty",
+    "B": "Dirty"
+}
+
+current_room = "A"
+
+while True:
+    if rooms[current_room] == "Dirty":
+        print("Cleaning Room", current_room)
+        rooms[current_room] = "Clean"
+    else:
+        print("Room", current_room, "is already clean")
+
+    if current_room == "A":
+        current_room = "B"
+    else:
+        break
+
+print("\nFinal Room Status:")
+print(rooms)
