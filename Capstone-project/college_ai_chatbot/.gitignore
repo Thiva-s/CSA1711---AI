@@ -1,0 +1,87 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Vector database
+vectorstore/
+*.chroma/
+
+# Data files
+data/
+*.json
+!config.json.example
+
+# Logs
+*.log
+logs/
+
+# Streamlit
+.streamlit/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Model cache
+~/.cache/huggingface/
+~/.cache/torch/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Distribution / Packaging
+dist/
+build/
+*.egg-info/
+
+# Coverage reports
+htmlcov/
+.coverage
+coverage.xml
+
+# Test artifacts
+.pytest_cache/
+.tox/
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Editor
+.project
+.pydevproject
+
+# Documentation build
+docs/_build/
+
+# API Keys and Secrets - NEVER COMMIT
+*.key
+*.pem
+*.crt
+secrets/
+credentials/
